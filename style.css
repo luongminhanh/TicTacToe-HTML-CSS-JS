@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 :root {
-    --cell-size: 100px;
+    --cell-size: 120px;
     --mark-size: calc(var(--cell-size) * .9);
 }
 body {
@@ -10,27 +10,37 @@ body {
 }
 
 .board {
+    /* width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto); */
     width: 100vw;
     height: 100vh;
     display: grid;
-    justify-content: center;
-    align-content: center;
-    /* align-items: center; */
     grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    grid-gap: .3rem;
+    background-color: rgba(65, 151, 26, 0.8);
 }
 
 .cell {
+    background-color: white;
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid black;
-    cursor: pointer;
     justify-content: center;
     display: flex;
     align-items: center;
     position: relative;
     cursor: pointer;
 }
-.cell:first-child,
+/* .cell:first-child,
 .cell:nth-child(2),
 .cell:nth-child(3) {
     border-top: none;
@@ -49,6 +59,7 @@ body {
 .cell:last-child {
     border-bottom: none;
 }
+*/
 
 .cell.x,
 .cell.cir {
@@ -64,6 +75,7 @@ body {
 .cell.x::after {
     background-color: rgb(73, 112, 219);
 }
+
 .cell.x::before,
 .cell.x::after, 
 .board.x .cell:not(.x):not(.cir):hover::before,
@@ -73,6 +85,7 @@ body {
     width: calc(var(--mark-size) * .15);
     height: var(--mark-size);
 }
+
 .cell.x::before,
 .board.x .cell:not(.x):not(.cir):hover::before {
     transform: rotate(45deg);
@@ -116,7 +129,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(0,0,0, .8);
+    background-color: rgb(0,0,0, .9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,16 +141,21 @@ body {
 }
 
 #restartBtn {
-    background-color: rgb(208, 216, 99);
+    background-color: rgb(215, 189, 213);
     padding: 15px;
     border-radius: 10px;
     border: none;
     font-size: 25px;
-    color: rgb(14, 202, 61);
+    color: rgb(15, 188, 58);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 600;
     cursor: pointer;
     margin-top: 30px;
+}
+
+#restartBtn:hover{
+    background-color: rgb(255, 238, 0);
+    font-style: italic;
 }
 
 .win-mess.show {
